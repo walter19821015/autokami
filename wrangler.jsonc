@@ -1,0 +1,31 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "autokami",
+  "compatibility_date": "2026-03-12",
+  "keep_vars": true,
+  "main": "vike:server-entry",
+  "send_email": [
+    {
+      "name": "EMAIL"
+    }
+  ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "cffk_db",
+      "migrations_dir": "database/migrations","database_id": "a3ed5d87-3b30-4315-a8f5-4239b6afa47a",
+      // "database_id": "6ccaa772-9379-494a-8548-7a1bb74e30da" // 一键部署必须注释/
+    }
+  ],
+  "compatibility_flags": [
+    "nodejs_compat",
+     "global_fetch_strictly_public"
+  ],
+  "triggers": {
+    "crons": ["* * * * *"]
+  },
+  "observability": {
+		"enabled": true,
+		"head_sampling_rate": 0.1
+	},
+}
